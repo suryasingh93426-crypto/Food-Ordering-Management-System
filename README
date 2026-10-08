@@ -1,0 +1,315 @@
+# 🍔 Food Ordering Management System
+
+## 👥 Team Members
+
+| Name        | Student ID |
+| ----------- | ---------- |
+| Jatin Singh | BC2025573  |
+| Suryansh    | BC2025496  |
+| Raj Gupta   | BC2025576  |
+| Ansh Singh  | BC2025523  |
+
+---
+
+## 📌 About the Project
+
+The **Food Ordering Management System** is a console-based project made using **C language**.
+
+This project is created for our **DSA with C** subject. It helps customers order food and allows the admin to manage food items and orders.
+
+We have used basic C programming concepts along with different **Data Structures and Algorithms** in this project.
+
+---
+
+## 🎯 Main Features
+
+### Customer
+
+* View food menu
+* Search food
+* Sort food by price
+* Add food to cart
+* Remove food from cart
+* View cart
+* Calculate total bill
+* Place an order
+
+### Admin
+
+* Admin login
+* View food menu
+* Add new food
+* Update food
+* Delete food
+* View pending orders
+* Process orders
+
+---
+
+## 🔹 How Our Code Works
+
+### 1. Food Structure
+
+We created a `Food` structure to store information about each food item.
+
+```c
+typedef struct {
+    int id;
+    char name[MAX_NAME];
+    char category[MAX_CATEGORY];
+    float price;
+} Food;
+```
+
+It stores four things:
+
+* Food ID
+* Food name
+* Food category
+* Food price
+
+We then create an array:
+
+```c
+Food foods[MAX_FOODS];
+```
+
+This array stores all available food items.
+
+---
+
+### 2. Display Food Menu
+
+The `displayFoods()` function shows all food items stored in the array.
+
+It uses a `for` loop to print every food item with its ID, name, category and price.
+
+---
+
+### 3. Searching Food
+
+The `searchFood()` function allows the customer to search for a food by its name.
+
+The program checks the food names one by one using:
+
+```c
+strstr()
+```
+
+If the food is found, its details are displayed.
+
+We also use `findFoodIndex()` to find a food using its ID.
+
+**Algorithm used:** Linear Search
+
+**Time Complexity:** `O(n)`
+
+---
+
+### 4. Sorting Food
+
+The `sortFoodByPrice()` function sorts food items according to their price.
+
+We used **Bubble Sort**.
+
+The program compares two nearby food items. If the first item's price is greater, their positions are swapped.
+
+Example:
+
+```text
+250   100   150
+
+100   250   150
+
+100   150   250
+```
+
+**Algorithm:** Bubble Sort
+
+**Time Complexity:** `O(n²)`
+
+---
+
+### 5. Cart Using Linked List
+
+For the cart, we used a **Linked List**.
+
+```c
+typedef struct CartNode {
+    int foodId;
+    int quantity;
+    struct CartNode *next;
+} CartNode;
+```
+
+Each cart node stores:
+
+* Food ID
+* Quantity
+* Address of the next node
+
+When a customer adds food, a new node is created using:
+
+```c
+malloc()
+```
+
+When an item is removed, its node is deleted using:
+
+```c
+free()
+```
+
+We used a linked list because cart items can be added or removed during the program.
+
+---
+
+### 6. Bill Calculation
+
+The `calculateCartTotal()` function calculates the total price.
+
+The basic formula is:
+
+```text
+Food Price × Quantity = Subtotal
+```
+
+Then all subtotals are added together.
+
+Example:
+
+```text
+Burger      ₹150 × 2 = ₹300
+Sandwich    ₹120 × 1 = ₹120
+
+Total = ₹420
+```
+
+---
+
+### 7. Order Using Queue
+
+For orders, we used a **Queue**.
+
+A queue follows:
+
+```text
+FIFO
+First In → First Out
+```
+
+For example:
+
+```text
+Order 1001
+Order 1002
+Order 1003
+```
+
+Order `1001` will be processed first.
+
+This is useful because a food ordering system normally processes orders in the order they are received.
+
+---
+
+### 8. Admin Panel
+
+The admin panel is protected by a simple username and password.
+
+```text
+Username: admin
+Password: 1234
+```
+
+After login, the admin can:
+
+```text
+View Food
+Add Food
+Update Food
+Delete Food
+View Orders
+Process Order
+```
+
+---
+
+### 9. File Handling
+
+We also used file handling to save the food menu.
+
+The program uses:
+
+```c
+fopen()
+fwrite()
+fread()
+fclose()
+```
+
+Food information is saved in:
+
+```text
+foods.dat
+```
+
+This means the food data can be loaded again when the program starts.
+
+---
+
+## 🔄 Project Flow
+
+The basic working of our project is:
+
+```text
+Start
+  ↓
+Main Menu
+  ↓
+Customer / Admin
+  ↓
+Customer → Menu → Cart → Order → Bill
+  ↓
+Admin → Manage Food → Manage Orders
+  ↓
+Exit
+```
+
+---
+
+## 💻 Technologies Used
+
+* **Language:** C
+* **Concept:** Data Structures and Algorithms
+* **IDE:** Visual Studio Code
+* **Platform:** GitHub
+
+---
+
+## 📚 DSA Used in Project
+
+| DSA / Algorithm | Used For              |
+| --------------- | --------------------- |
+| Structure       | Food and Order data   |
+| Array           | Food menu             |
+| Linked List     | Shopping cart         |
+| Queue           | Order processing      |
+| Linear Search   | Finding food          |
+| Bubble Sort     | Sorting food by price |
+
+---
+
+## 🎓 Conclusion
+
+This project helped us understand how **C programming and DSA concepts** can be used to solve a real-world problem.
+
+We used different concepts such as **Structures, Arrays, Linked Lists, Queues, Searching, Sorting and File Handling** to build our Food Ordering Management System.
+
+---
+
+## 👨‍💻 Team
+
+**Jatin Singh — BC2025573**
+**Suryansh — BC2025496**
+**Raj Gupta — BC2025576**
+**Ansh Singh — BC2025523**
